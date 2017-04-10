@@ -10,7 +10,9 @@
     "build": "tsc",
     "test": "npm run -s tslint && npm run -s build && npm run -s mocha",
     "mocha": "mocha -r ts-node/register src/**/*-test.ts",
-    "tslint": "tslint 'src/**/*.ts'"
+    "tslint": "tslint 'src/**/*.ts'",
+    "precommit": "npm run -s test",
+    "fail-on-lib-changed": "if [ $(git diff --name-only lib) ]; then exit 1; fi"
   },
   "directories": {
     "lib": "lib"
@@ -40,9 +42,14 @@
     "@types/slug": "^0.9.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2",
     "ts-node": "^3.0.2",
     "tslint": "^4.5.1",
     "tslint-config-airbnb": "^1.1.1",
     "typescript": "^2.2.2"
-  }
+  },
+  "precommit": [
+    "precommit",
+    "fail-on-lib-changed"
+  ]
 }
