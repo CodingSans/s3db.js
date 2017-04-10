@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    command: yarn test
+    depends_on:
+      - s3
+  s3:
+    image: scality/s3server:mem-latest

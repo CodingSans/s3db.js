@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./lib/",
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": "./src/",
+    "inlineSourceMap": true,
+    "lib": ["es5", "es2015.promise", "es2015.collection", "es2015.iterable"],
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "target": "es5"
+  },
+  "include": [
+      "./src/index.ts"
+  ]
+}

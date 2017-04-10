@@ -1,0 +1,21 @@
+# needed for docker
+sudo: required
+
+# can be anything
+language: node_js
+
+services:
+  - docker
+
+env:
+  matrix:
+    - DOCKER_NODE_VERSION=4
+    - DOCKER_NODE_VERSION=6
+    - DOCKER_NODE_VERSION=7
+
+before_install:
+  - sed -i "s/FROM node.*/FROM node:${DOCKER_NODE_VERSION}/" Dockerfile.ci
+  - docker-compose -f docker-compose.ci.yml build
+
+script:
+  - docker-compose -f docker-compose.ci.yml run test
