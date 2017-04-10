@@ -14,11 +14,11 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 WORKDIR /code
 
-ADD package.json yarn.lock /code/
+ADD package.json /code/
 
-RUN yarn install
+RUN npm install
 
 ADD tsconfig.json tslint.json /code/
 ADD src/ /code/src
 
-CMD yarn test
+CMD npm run -s test

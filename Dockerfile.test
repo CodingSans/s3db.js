@@ -14,7 +14,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 WORKDIR /code
 
-ADD package.json yarn.lock /code/
+ADD package.json /code/
 
 RUN yarn install
 
